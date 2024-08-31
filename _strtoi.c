@@ -55,7 +55,7 @@ int _atoi(char *s)
 		if (s[k] == '-')
 			sign *= -1;
 
-		if (s[k] >= '0' && s[i] <= '9')
+		if (s[k] >= '0' && s[k] <= '9')
 		{
 			flag = 1;
 			result *= 10;
