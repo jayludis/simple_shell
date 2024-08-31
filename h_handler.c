@@ -23,18 +23,18 @@ int _hislist(info_t *info)
 
 int rm_alias(info_t *info, char *str)
 {
-	char *p, a;
-	int list;
+	char *p, c;
+	int ret;
 
 	p = _strchr(str, '=');
 	if (!p)
 		return (1);
-	a = *p;
+	c = *p;
 	*p = 0;
-	list = delete_node_at_index(&(info->alias),
+	ret = delete_node_at_index(&(info->alias),
 		get_node_index(info->alias, node_starts_with(info->alias, str, -1)));
-	*p = a;
-	return (list);
+	*p = c;
+	return (ret);
 }
 
 /**
@@ -107,7 +107,7 @@ int _xalias(info_t *info)
 	}
 	for (k = 1; info->argv[k]; k++)
 	{
-		p = _strchr(info->argv[i], '=');
+		p = _strchr(info->argv[k], '=');
 		if (p)
 			set_alias(info, info->argv[k]);
 		else
