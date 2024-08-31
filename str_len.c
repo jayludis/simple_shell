@@ -9,17 +9,17 @@
 
 int _strlen(char *s)
 {
-	int l = 0;
+	int k = 0;
 
 	if (!s)
 		return (0);
 	while (*s++)
-		l++;
-	return (l);
+		k++;
+	return (k);
 }
 
 /**
- * _strcmp - Compares two strings lexicographically.
+ * _strcomp - Compares two strings lexicographically.
  *
  * @s1: The first strang
  * @s2: The second strang
@@ -29,7 +29,7 @@ int _strlen(char *s)
  * or 0 if s1 == s2.
  */
 
-int _strcmp(char *s1, char *s2)
+int _strcomp(char *s1, char *s2)
 {
 	while (*s1 && *s2)
 	{
@@ -45,12 +45,13 @@ int _strcmp(char *s1, char *s2)
 }
 
 /**
- * starts_with - checks if needle starts with haystack
- * @haystack: string to search
- * @needle: the substring to find
+ * starts_with - Checks if needle starts with haystack
+ * @haystack: String to search
+ * @needle: The substring to find
  *
- * Return: address of next char of haystack or NULL
+ * Return: Address of next char of haystack or NULL
  */
+
 char *starts_with(const char *haystack, const char *needle)
 {
 	while (*needle)
@@ -60,12 +61,13 @@ char *starts_with(const char *haystack, const char *needle)
 }
 
 /**
- * _strcat - concatenates two strings
- * @dest: the destination buffer
- * @src: the source buffer
+ * _strcat - Concatenates two strings
+ * @dest: The destination buffer
+ * @src: The source buffer
  *
- * Return: pointer to destination buffer
+ * Return: Pointer to destination buffer
  */
+
 char *_strcat(char *dest, char *src)
 {
 	char *ret = dest;
