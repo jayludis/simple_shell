@@ -11,22 +11,22 @@
 
 char *_strcpy(char *dest, char *src, int n)
 {
-	int m, d;
+	int k, j;
 	char *s = dest;
 
-	m = 0;
-	while (src[m] && m < n - 1)
+	k = 0;
+	while (src[k] && k < n - 1)
 	{
-		dest[m] = src[m];
-		m++;
+		dest[k] = src[k];
+		k++;
 	}
-	if (m < n)
+	if (k < n)
 	{
-		d = m;
-		while (d < n)
+		j = k;
+		while (j < n)
 		{
-			dest[d] = '\0';
-			d++;
+			dest[j] = '\0';
+			j++;
 		}
 	}
 	return (s);
@@ -42,15 +42,15 @@ char *_strcpy(char *dest, char *src, int n)
 
 char *_strcat(char *dest, char *src, int n)
 {
-	int m = 0, d = 0;
+	int k = 0, j = 0;
 	char *s = dest;
 
-	while (dest[m])
-		m++;
-	for (; src[d] && d < n; m++, d++)
-		dest[m] = src[d];
-	if (d < n)
-		dest[m] = '\0';
+	while (dest[k])
+		k++;
+	for (; src[j] && j < n; k++, j++)
+		dest[k] = src[j];
+	if (j < n)
+		dest[k] = '\0';
 	return (s);
 }
 
