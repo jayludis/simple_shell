@@ -28,26 +28,26 @@ int is_delim(char c, char *delim)
 }
 
 /**
- *_isalpha - Checks if a character is an alphabetic letter.
- *@a: The character to check.
- *Return: 1 if the character is an alphabetic letter, 0 otherwise.
+ * _isalpha - Checks if a character is an alphabetic letter.
+ * @c: The character to check.
+ * Return: 1 if the character is an alphabetic letter, 0 otherwise.
  */
 
-int _isalpha(int a)
+int _isalpha(int c)
 {
-	if ((a >= 'a' && a <= 'z') || (c >= 'A' && a <= 'Z'))
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
 		return (1);
 	else
 		return (0);
 }
 
 /**
- *str_to_int - Converts a string to an integer.
+ *_strtoi - Converts a string to an integer.
  *@s: The string to be converted.
  *Return: The converted integer value, or 0 if no numbers are found.
  */
 
-int str_to_int(char *s)
+int _strtoi(char *s)
 {
 	int k, sign = 1, flag = 0, output;
 	unsigned int result = 0;
@@ -57,7 +57,7 @@ int str_to_int(char *s)
 		if (s[k] == '-')
 			sign *= -1;
 
-		if (s[k] >= '0' && s[i] <= '9')
+		if (s[k] >= '0' && s[k] <= '9')
 		{
 			flag = 1;
 			result *= 10;
