@@ -27,13 +27,13 @@ char *_memoryset(char *s, char b, unsigned int n)
 
 void sfree(char **pp)
 {
-	char **p = pp;
+	char **a = pp;
 
 	if (!pp)
 		return;
 	while (*pp)
 		free(*pp++);
-	free(p);
+	free(a);
 }
 
 /**

@@ -15,7 +15,7 @@ char *_str_c(char *dest, char *src)
 	if (dest == src || !src)
 		return (dest);
 	for (k = 0; src[k] ; k++)
-		dest[i] = src[k];
+		dest[k] = src[k];
 	dest[k] = 0;
 	return (dest);
 }
@@ -30,18 +30,18 @@ char *_str_c(char *dest, char *src)
 
 char *_str_dup(const char *str)
 {
-	int l = 0;
+	int len = 0;
 	char *ret;
 
 	if (!str)
 		return (NULL);
 	while (*str++)
-		l++;
-	ret = malloc(sizeof(char) * (l + 1));
+		len++;
+	ret = malloc(sizeof(char) * (len + 1));
 	if (!ret)
 		return (NULL);
-	for (l++; l--;)
-		ret[l] = *--str;
+	for (len++; len--;)
+		ret[len] = *--str;
 	return (ret);
 }
 
@@ -70,15 +70,15 @@ void _puts(char *str)
 
 int _putchar(char c)
 {
-	static int i;
+	static int k;
 	static char buf[WRITE_BUF_SIZE];
 
-	if (c == BUF_FLUSH || i >= WRITE_BUF_SIZE)
+	if (c == BUF_FLUSH || k >= WRITE_BUF_SIZE)
 	{
-		write(1, buf, i);
-		i = 0;
+		write(1, buf, k);
+		k = 0;
 	}
 	if (c != BUF_FLUSH)
-		buf[i++] = c;
+		buf[k++] = c;
 	return (1);
 }
