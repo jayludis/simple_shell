@@ -1,21 +1,19 @@
 #include "shell.h"
 
 /**
- * _strcpy - Copies a specified number of characters
- * from one string to another.
- * @dest: The destination string to be copied to.
- * @src: The source string.
- * @n: The maximum number of characters to copy.
- * Return: A pointer to the destination string.
+ **_strncpy - copies a string
+ *@dest: the destination string to be copied to
+ *@src: the source string
+ *@n: the amount of characters to be copied
+ *Return: the concatenated string
  */
-
-char *_strcpy(char *dest, char *src, int n)
+char *_strncpy(char *dest, char *src, int n)
 {
 	int k, j;
 	char *s = dest;
 
 	k = 0;
-	while (src[k] && k < n - 1)
+	while (src[i] && k < n - 1)
 	{
 		dest[k] = src[k];
 		k++;
@@ -33,16 +31,15 @@ char *_strcpy(char *dest, char *src, int n)
 }
 
 /**
- * _strcat - Concatenates two strings
- * @dest: The destination string.
- * @src: The source string.
- * @n: The maximum number of characters to copy.
- * Return: A pointer to the destination string.
+ **_strncat - concatenates two strings
+ *@dest: the first string
+ *@src: the second string
+ *@n: the amount of bytes to be maximally used
+ *Return: the concatenated string
  */
-
-char *_strcat(char *dest, char *src, int n)
+char *_strncat(char *dest, char *src, int n)
 {
-	int k = 0, j = 0;
+	int i = 0, j = 0;
 	char *s = dest;
 
 	while (dest[k])
@@ -55,14 +52,12 @@ char *_strcat(char *dest, char *src, int n)
 }
 
 /**
- * _strchar - Locates the first occurrence of a character in a string.
- * @s: The string to search.
- * @c: The character to search for.
- * Return: A pointer to the first occurrence of
- * the character in the string.
+ **_strchr - locates a character in a string
+ *@s: the string to be parsed
+ *@c: the character to look for
+ *Return: (s) a pointer to the memory area s
  */
-
-char *_strchar(char *s, char c)
+char *_strchr(char *s, char c)
 {
 	do {
 		if (*s == c)

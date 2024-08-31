@@ -1,19 +1,18 @@
 #include "shell.h"
 
 /**
- * _errstr - Converts a string to an integer,
- * handling potential errors.
- * @s: The string to be converted.
- * Return: The converted integer value, or -1 on error.
+ * _erratoi - converts a string to an integer
+ * @s: the string to be converted
+ * Return: 0 if no numbers in string, converted number otherwise
+ *       -1 on error
  */
-
-int _errstr(char *s)
+int _erratoi(char *s)
 {
 	int k = 0;
 	unsigned long int result = 0;
 
 	if (*s == '+')
-		s++;
+		s++;  /* TODO: why does this make main return 255? */
 	for (k = 0;  s[k]; k++)
 	{
 		if (s[k] >= '0' && s[k] <= '9')
@@ -30,13 +29,12 @@ int _errstr(char *s)
 }
 
 /**
- * print_error - Prints an error message.
- * @info: A pointer to the info_t structure.
- * @estr: String containing specified error type.
+ * print_error - prints an error message
+ * @info: the parameter & return info struct
+ * @estr: string containing specified error type
  * Return: 0 if no numbers in string, converted number otherwise
- *        -1 on error.
+ *        -1 on error
  */
-
 void print_error(info_t *info, char *estr)
 {
 	_eputs(info->fname);
@@ -49,15 +47,13 @@ void print_error(info_t *info, char *estr)
 }
 
 /**
- * print_decim - Prints a decimal (integer) number
- * to the specified file descriptor.
- * @input: The integer to be printed.
- * @fd: The file descriptor to write to.
+ * print_d - function prints a decimal (integer) number (base 10)
+ * @input: the input
+ * @fd: the filedescriptor to write to
  *
  * Return: number of characters printed
  */
-
-int print_decim(int input, int fd)
+int print_d(int input, int fd)
 {
 	int (*__putchar)(char) = _putchar;
 	int k, count = 0;
@@ -90,16 +86,14 @@ int print_decim(int input, int fd)
 }
 
 /**
- * convert_num - Converts a number to a string representation.
- * @num: The number to be converted.
- * @base: The base for the conversion.
- * @flags: Optional flags to control the conversion
- * (e.g., CONVERT_UNSIGNED, CONVERT_LOWERCASE).
+ * convert_number - converter function, a clone of itoa
+ * @num: number
+ * @base: base
+ * @flags: argument flags
  *
- * Return: A pointer to the converted string.
+ * Return: string
  */
-
-char *convert_num(long int num, int base, int flags)
+char *convert_number(long int num, int base, int flags)
 {
 	static char *array;
 	static char buffer[50];
@@ -128,14 +122,12 @@ char *convert_num(long int num, int base, int flags)
 }
 
 /**
- * rm_comments - Removes the first occurrence of a '#'
- * comment from a string with '\0'.
- * @buf: The string to modify.
+ * remove_comments - function replaces first instance of '#' with '\0'
+ * @buf: address of the string to modify
  *
  * Return: Always 0;
  */
-
-void rm_comments(char *buf)
+void remove_comments(char *buf)
 {
 	int k;
 

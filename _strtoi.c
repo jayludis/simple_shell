@@ -1,24 +1,22 @@
 #include "shell.h"
 
 /**
- * is_interactive - Determines if the shell is running in interactive mode.
- * @info: A pointer to the info_t structure.
+ * interactive - returns true if shell is interactive mode
+ * @info: struct address
  *
- * Return: 1 if the shell is interactive, 0 otherwise.
+ * Return: 1 if interactive mode, 0 otherwise
  */
-
-int is_interactive(info_t *info)
+int interactive(info_t *info)
 {
 	return (isatty(STDIN_FILENO) && info->readfd <= 2);
 }
 
 /**
- * is_delim - Checks if character is a delimeter
- * @c: The character to check.
- * @delim: The delimeter string.
- * Return: 1 if the character is a delimiter, 0 otherwise.
+ * is_delim - checks if character is a delimeter
+ * @c: the char to check
+ * @delim: the delimeter string
+ * Return: 1 if true, 0 if false
  */
-
 int is_delim(char c, char *delim)
 {
 	while (*delim)
@@ -28,9 +26,9 @@ int is_delim(char c, char *delim)
 }
 
 /**
- * _isalpha - Checks if a character is an alphabetic letter.
- * @c: The character to check.
- * Return: 1 if the character is an alphabetic letter, 0 otherwise.
+ *_isalpha - checks for alphabetic character
+ *@c: The character to input
+ *Return: 1 if c is alphabetic, 0 otherwise
  */
 
 int _isalpha(int c)
@@ -42,12 +40,12 @@ int _isalpha(int c)
 }
 
 /**
- *_strtoi - Converts a string to an integer.
- *@s: The string to be converted.
- *Return: The converted integer value, or 0 if no numbers are found.
+ *_atoi - converts a string to an integer
+ *@s: the string to be converted
+ *Return: 0 if no numbers in string, converted number otherwise
  */
 
-int _strtoi(char *s)
+int _atoi(char *s)
 {
 	int k, sign = 1, flag = 0, output;
 	unsigned int result = 0;
@@ -57,7 +55,7 @@ int _strtoi(char *s)
 		if (s[k] == '-')
 			sign *= -1;
 
-		if (s[k] >= '0' && s[k] <= '9')
+		if (s[k] >= '0' && s[i] <= '9')
 		{
 			flag = 1;
 			result *= 10;
