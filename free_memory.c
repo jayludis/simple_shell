@@ -1,13 +1,13 @@
 #include "shell.h"
 
 /**
- * mfree - Frees a pointer and NULLs the address.
- * @ptr: Address of the memory to free.
+ * memfree - Frees a pointer and NULLs the address.
+ * @ptr: Address of the pointer to free.
  *
  * Return: 1 if the memory was freed, otherwise 0.
  */
 
-int mfree(void **ptr)
+int memfree(void **ptr)
 {
 	if (ptr && *ptr)
 	{
@@ -17,4 +17,3 @@ int mfree(void **ptr)
 	}
 	return (0);
 }
-
