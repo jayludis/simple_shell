@@ -47,19 +47,19 @@ int _isalpha(int c)
 
 int _atoi(char *s)
 {
-	int k, sign = 1, flag = 0, output;
+	int i, sign = 1, flag = 0, output;
 	unsigned int result = 0;
 
-	for (k = 0;  s[k] != '\0' && flag != 2; k++)
+	for (i = 0;  s[i] != '\0' && flag != 2; i++)
 	{
-		if (s[k] == '-')
+		if (s[i] == '-')
 			sign *= -1;
 
-		if (s[k] >= '0' && s[k] <= '9')
+		if (s[i] >= '0' && s[i] <= '9')
 		{
 			flag = 1;
 			result *= 10;
-			result += (s[k] - '0');
+			result += (s[i] - '0');
 		}
 		else if (flag == 1)
 			flag = 2;
