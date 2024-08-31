@@ -13,7 +13,7 @@ char *_strncpy(char *dest, char *src, int n)
 	char *s = dest;
 
 	k = 0;
-	while (src[i] && k < n - 1)
+	while (src[k] && k < n - 1)
 	{
 		dest[k] = src[k];
 		k++;
@@ -39,7 +39,7 @@ char *_strncpy(char *dest, char *src, int n)
  */
 char *_strncat(char *dest, char *src, int n)
 {
-	int i = 0, j = 0;
+	int k = 0, j = 0;
 	char *s = dest;
 
 	while (dest[k])
