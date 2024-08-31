@@ -1,13 +1,13 @@
 #include "shell.h"
 
 /**
- * _winenv - Prints the current variables.
+ * _penv - Prints the current variables.
  * @info: Structure containing potential arguments. Used to maintain
  *          constant function prototype.
  * Return: Always 0
  */
 
-int _winenv(info_t *info)
+int _penv(info_t *info)
 {
 	print_list_str(info->env);
 	return (0);
@@ -25,13 +25,13 @@ int _winenv(info_t *info)
 char *_getenv(info_t *info, const char *name)
 {
 	list_t *node = info->env;
-	char *e;
+	char *p;
 
 	while (node)
 	{
-		e = starts_with(node->str, name);
-		if (e && *e)
-			return (e);
+		p = starts_with(node->str, name);
+		if (p && *p)
+			return (p);
 		node = node->next;
 	}
 	return (NULL);
