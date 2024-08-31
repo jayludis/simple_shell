@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * input_buffer - Reads input from the user,
+ * input_buf - Reads input from the user,
  * handling buffering and comments.
  * @info: A pointer to the info_t structure.
  * @buf: A pointer to the buffer to store the input.
@@ -10,7 +10,7 @@
  * Return: The number of bytes read.
  */
 
-ssize_t input_buffer(info_t *info, char **buf, size_t *len)
+ssize_t input_buf(info_t *info, char **buf, size_t *len)
 {
 	ssize_t s = 0;
 	size_t len_p = 0;
@@ -46,14 +46,14 @@ ssize_t input_buffer(info_t *info, char **buf, size_t *len)
 }
 
 /**
- * get_line_input - Gets a line of input from the user,
+ * get_input - Gets a line of input from the user,
  * handling command chaining.
  * @info: A pointer to the info_t structure.
  *
  * Return: The number of bytes read.
  */
 
-ssize_t get_line_input(info_t *info)
+ssize_t get_input(info_t *info)
 {
 	static char *buf;
 	static size_t l, j, len;
@@ -93,7 +93,7 @@ ssize_t get_line_input(info_t *info)
 }
 
 /**
- * read_buffer - Reads a buffer
+ * read_buf - Reads a buffer
  * @info: A pointer to the info_t structure.
  * @buf: The buffer to store the read data.
  * @i: A pointer to the current position in the buffer.
@@ -101,7 +101,7 @@ ssize_t get_line_input(info_t *info)
  * Return: The number of bytes read.
  */
 
-ssize_t read_buffer(info_t *info, char *buf, size_t *i)
+ssize_t read_buf(info_t *info, char *buf, size_t *i)
 {
 	ssize_t s = 0;
 
@@ -114,7 +114,7 @@ ssize_t read_buffer(info_t *info, char *buf, size_t *i)
 }
 
 /**
- * _inputline - Reads a line of input from STDIN.
+ * _getline - Reads a line of input from STDIN.
  * @info: A pointer to the info_t structure.
  * @ptr: Address of pointer to buffer.
  * @length: A pointer to the length of the buffer.
@@ -122,7 +122,7 @@ ssize_t read_buffer(info_t *info, char *buf, size_t *i)
  * Return: The number of bytes read
  */
 
-int _inputline(info_t *info, char **ptr, size_t *length)
+int _getline(info_t *info, char **ptr, size_t *length)
 {
 	static char buf[READ_BUF_SIZE];
 	static size_t l, len;
@@ -162,12 +162,12 @@ int _inputline(info_t *info, char **ptr, size_t *length)
 }
 
 /**
- * signal_handler_ctrl_c - Handles the SIGINT signal (Ctrl-C).
+ * sigintHandler - Handles the SIGINT signal (Ctrl-C).
  *
  * @sig_num: The signal number.
  */
 
-void signal_handler_ctrl_c(__attribute__((unused))int sig_num)
+void sigintHandler(__attribute__((unused))int sig_num)
 {
 	_puts("\n");
 	_puts("$ ");
