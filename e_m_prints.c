@@ -8,17 +8,17 @@
  */
 int _erratoi(char *s)
 {
-	int k = 0;
+	int i = 0;
 	unsigned long int result = 0;
 
 	if (*s == '+')
 		s++;  /* TODO: why does this make main return 255? */
-	for (k = 0;  s[k]; k++)
+	for (i = 0;  s[i]; i++)
 	{
-		if (s[k] >= '0' && s[k] <= '9')
+		if (s[i] >= '0' && s[i] <= '9')
 		{
 			result *= 10;
-			result += (s[k] - '0');
+			result += (s[i] - '0');
 			if (result > INT_MAX)
 				return (-1);
 		}
@@ -56,7 +56,7 @@ void print_error(info_t *info, char *estr)
 int print_d(int input, int fd)
 {
 	int (*__putchar)(char) = _putchar;
-	int k, count = 0;
+	int i, count = 0;
 	unsigned int _abs_, current;
 
 	if (fd == STDERR_FILENO)
@@ -70,14 +70,14 @@ int print_d(int input, int fd)
 	else
 		_abs_ = input;
 	current = _abs_;
-	for (k = 1000000000; k > 1; k /= 10)
+	for (i = 1000000000; i > 1; i /= 10)
 	{
-		if (_abs_ / k)
+		if (_abs_ / i)
 		{
-			__putchar('0' + current / k);
+			__putchar('0' + current / i);
 			count++;
 		}
-		current %= k;
+		current %= i;
 	}
 	__putchar('0' + current);
 	count++;
@@ -129,12 +129,12 @@ char *convert_number(long int num, int base, int flags)
  */
 void remove_comments(char *buf)
 {
-	int k;
+	int i;
 
-	for (k = 0; buf[k]; k++)
-		if (buf[k] == '#' && (!k || buf[k - 1] == ' '))
+	for (i = 0; buf[i]; i++)
+		if (buf[i] == '#' && (!i || buf[i - 1] == ' '))
 		{
-			buf[k] = '\0';
+			buf[i] = '\0';
 			break;
 		}
 }
