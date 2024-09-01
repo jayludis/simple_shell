@@ -9,13 +9,13 @@
  */
 char *_strcpy(char *dest, char *src)
 {
-	int i;
+	int s;
 
 	if (dest == src || !src)
 		return (dest);
-	for (i = 0; src[i] ; i++)
-		dest[i] = src[i];
-	dest[i] = 0;
+	for (s = 0; src[s] ; s++)
+		dest[s] = src[s];
+	dest[s] = 0;
 	return (dest);
 }
 
@@ -50,11 +50,11 @@ char *_strdup(const char *str)
  */
 void _puts(char *str)
 {
-	int i;
+	int s;
 
 	if (!str)
 		return;
-	for (i = 0; str[i] ; i++)
+	for (s = 0; str[s] ; s++)
 		_putchar(str[i]);
 }
 
