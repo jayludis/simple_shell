@@ -8,12 +8,12 @@
  */
 void _eputs(char *str)
 {
-	int s;
+	int i;
 
 	if (!str)
 		return;
-	for (s = 0; str[s] ; s++)
-		_eputchar(str[s]);
+	for (i = 0; str[i] ; i++)
+		_eputchar(str[i]);
 }
 
 /**
@@ -25,16 +25,16 @@ void _eputs(char *str)
  */
 int _eputchar(char c)
 {
-	static int s;
+	static int i;
 	static char buf[WRITE_BUF_SIZE];
 
-	if (c == BUF_FLUSH || s >= WRITE_BUF_SIZE)
+	if (c == BUF_FLUSH || i >= WRITE_BUF_SIZE)
 	{
-		write(2, buf, s);
-		s = 0;
+		write(2, buf, i);
+		i = 0;
 	}
 	if (c != BUF_FLUSH)
-		buf[s++] = c;
+		buf[i++] = c;
 	return (1);
 }
 
@@ -48,16 +48,16 @@ int _eputchar(char c)
  */
 int _putfd(char c, int fd)
 {
-	static int s;
+	static int i;
 	static char buf[WRITE_BUF_SIZE];
 
-	if (c == BUF_FLUSH || s >= WRITE_BUF_SIZE)
+	if (c == BUF_FLUSH || i >= WRITE_BUF_SIZE)
 	{
-		write(fd, buf, s);
-		s = 0;
+		write(fd, buf, i);
+		i = 0;
 	}
 	if (c != BUF_FLUSH)
-		buf[s++] = c;
+		buf[i++] = c;
 	return (1);
 }
 
@@ -70,11 +70,11 @@ int _putfd(char c, int fd)
  */
 int _putsfd(char *str, int fd)
 {
-	int s = 0;
+	int i = 0;
 
 	if (!str)
 		return (0);
 	while (*str)
-		s += _putfd(*str++, fd);
-	return (s);
+		i += _putfd(*str++, fd);
+	return (i);
 }
