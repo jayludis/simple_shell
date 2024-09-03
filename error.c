@@ -6,14 +6,15 @@
  *
  * Return: Nothing
  */
+
 void _eputs(char *str)
 {
-	int i;
+	int k;
 
 	if (!str)
 		return;
-	for (i = 0; str[i] ; i++)
-		_eputchar(str[i]);
+	for (k = 0; str[k] ; k++)
+		_eputchar(str[k]);
 }
 
 /**
@@ -23,6 +24,7 @@ void _eputs(char *str)
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
  */
+
 int _eputchar(char c)
 {
 	static int i;
@@ -46,6 +48,7 @@ int _eputchar(char c)
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
  */
+
 int _putfd(char c, int fd)
 {
 	static int i;
@@ -68,13 +71,14 @@ int _putfd(char c, int fd)
  *
  * Return: the number of chars put
  */
+
 int _putsfd(char *str, int fd)
 {
-	int i = 0;
+	int k = 0;
 
 	if (!str)
 		return (0);
 	while (*str)
-		i += _putfd(*str++, fd);
-	return (i);
+		k += _putfd(*str++, fd);
+	return (k);
 }
